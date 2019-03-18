@@ -19,4 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/crearevento','HomeController@crearevento');
+Route::get('/crearevento','EventController@display');    
+
+Route::resource('/calendar','EventController'); 
+
+Route::get('/listaeventos','EventController@show');    
