@@ -22,8 +22,6 @@ class CreateRoomTable extends Migration
             $table->timestamps();
         });
         
-        Schema::enableForeignKeyConstraints();
-
     }
 
     /**

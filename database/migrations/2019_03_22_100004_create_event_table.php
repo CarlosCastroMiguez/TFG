@@ -21,20 +21,25 @@ class CreateEventTable extends Migration
             $table->Date('date');
             $table->TIME('start_time');
             $table->TIME('end_time');
-            $table->unsignedInteger('id_asignatura');
-            $table->foreign('id_asignatura')->references('id_asignatura')->on('subject')->onDelete('cascade');
-            $table->unsignedInteger('id_profesor');
-            $table->foreign('id_profesor')->references('id_profesor')->on('teacher')->onDelete('cascade');
-            $table->unsignedInteger('id_sala');
-            $table->foreign('id_sala')->references('id_sala')->on('room')->onDelete('cascade');
+            $table->integer('id_asignatura')->unsigned();
+            $table->integer('id_profesor')->unsigned();
+            $table->integer('id_sala')->unsigned();
             
             $table->timestamps();
         });
         
-        Schema::enableForeignKeyConstraints();
+        
+        Schema::table('event', function($table)
+        {
+            
+            $table->foreign('id_asignatura')->references('id_asignatura')->on('subject')->onDelete('cascade');
+            $table->foreign('id_profesor')->references('id_profesor')->on('teacher')->onDelete('cascade');
+            $table->foreign('id_sala')->references('id_sala')->on('room')->onDelete('cascade');
+        });
+        
 
     }
-
+     /*
      *
      * @return void
      */

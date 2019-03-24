@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTeacherTable extends Migration
+class CreateSubjectTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +14,16 @@ class CreateTeacherTable extends Migration
     public function up()
     {
 
-        Schema::create('teacher', function (Blueprint $table) {
-            $table->increments('id_profesor');
+        Schema::create('subject', function (Blueprint $table) {
+            $table->increments('id_asignatura');
             $table->string('nombre');
-            $table->string('departamento');
-                      
+            $table->smallInteger('codigo');
+            $table->string('grado');
+            $table->tinyInteger('curso');
+            $table->string('grupo');
+            
             $table->timestamps();
         });
-        
-        Schema::enableForeignKeyConstraints();
-
     }
 
     /**
@@ -33,6 +33,6 @@ class CreateTeacherTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teacher');
+        Schema::dropIfExists('subject');
     }
 }
