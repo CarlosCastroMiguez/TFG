@@ -14,12 +14,12 @@ class CreateSubjectTable extends Migration
     public function up()
     {
 
-        Schema::create('subject', function (Blueprint $table) {
-            $table->increments('id_asignatura');
+        Schema::create('asignaturas', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('nombre');
             $table->smallInteger('codigo');
             $table->string('grado');
-            $table->tinyInteger('curso');
+            $table->TinyInteger('curso');
             $table->string('grupo');
             
             $table->timestamps();
@@ -33,6 +33,6 @@ class CreateSubjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subject');
+        Schema::dropIfExists('asignaturas');
     }
 }

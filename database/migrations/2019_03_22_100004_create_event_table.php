@@ -14,27 +14,27 @@ class CreateEventTable extends Migration
     public function up()
     {
 
-        Schema::create('event', function (Blueprint $table) {
-            $table->increments('id_evento');
+        Schema::create('eventos', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('nombre');
-            $table->tinyInteger('numAlumnos');
+            $table->TinyInteger('numAlumnos');
             $table->Date('date');
             $table->TIME('start_time');
             $table->TIME('end_time');
-            $table->integer('id_asignatura')->unsigned();
-            $table->integer('id_profesor')->unsigned();
-            $table->integer('id_sala')->unsigned();
+            $table->unsignedInteger('id_asignatura');
+            $table->unsignedInteger('id_profesor');
+            $table->unsignedInteger('id_sala');
             
             $table->timestamps();
         });
         
         
-        Schema::table('event', function($table)
+        Schema::table('eventos', function($table)
         {
             
-            $table->foreign('id_asignatura')->references('id_asignatura')->on('subject')->onDelete('cascade');
-            $table->foreign('id_profesor')->references('id_profesor')->on('teacher')->onDelete('cascade');
-            $table->foreign('id_sala')->references('id_sala')->on('room')->onDelete('cascade');
+            $table->foreign('id_asignatura')->references('id')->on('asignaturas')->onDelete('cascade');
+            $table->foreign('id_profesor')->references('id')->on('profesores')->onDelete('cascade');
+            $table->foreign('id_sala')->references('id')->on('salas')->onDelete('cascade');
         });
         
 
@@ -45,6 +45,6 @@ class CreateEventTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event');
+        Schema::dropIfExists('eventos');
     }
 }

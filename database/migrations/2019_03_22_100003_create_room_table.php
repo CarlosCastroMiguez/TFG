@@ -14,10 +14,10 @@ class CreateRoomTable extends Migration
     public function up()
     {
 
-        Schema::create('room', function (Blueprint $table) {
-            $table->increments('id_sala');
+        Schema::create('salas', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('tipo');
-            $table->tinyInteger('capacidad');
+            $table->TinyInteger('capacidad');
                        
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateRoomTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('room');
+        Schema::dropIfExists('salas');
     }
 }
