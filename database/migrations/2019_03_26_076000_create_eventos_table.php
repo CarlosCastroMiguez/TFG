@@ -14,6 +14,7 @@ class CreateEventosTable extends Migration
     public function up()
     {
         Schema::create('eventos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre');
             $table->TinyInteger('numAlumnos');
@@ -30,7 +31,7 @@ class CreateEventosTable extends Migration
         Schema::table('eventos', function($table){
             
             $table->foreign('id_asignatura')->references('id')->on('asignaturas')->onDelete('cascade');
-            $table->foreign('id_profesor')->references('id')->on('profesores')->onDelete('cascade');
+            $table->foreign('id_profesor')->references('id')->on('profesors')->onDelete('cascade');
             $table->foreign('id_sala')->references('id')->on('salas')->onDelete('cascade');
         });
         

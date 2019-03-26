@@ -13,8 +13,10 @@ class CreateProfesorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('profesores', function (Blueprint $table) {
-           $table->increments('id');
+        Schema::create('profesors', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            
             $table->string('nombre');
             $table->string('departamento');
                       
@@ -29,6 +31,6 @@ class CreateProfesorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profesores');
+        Schema::dropIfExists('profesors');
     }
 }
