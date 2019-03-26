@@ -20,8 +20,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/crearevento','EventController@display');    
-
 Route::resource('/calendar','EventController'); 
 
-Route::get('/listaeventos','EventController@show');    
+Route::group(['middleware' => 'admin'], function () {
+             
+    Route::get('/crearevento','EventController@display');    
+    Route::get('/listaeventos','EventController@show');
+    Route::get('/informes','Admin\InformeController@index'); 
+
+             
+});
+
+

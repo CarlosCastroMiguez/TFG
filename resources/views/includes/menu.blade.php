@@ -17,7 +17,7 @@
             <a href="{{ url('/listaeventos') }}" class="list-group-item list-group-item">
                 Editar Evento
             </a>
-            <a href="#" class="list-group-item list-group-item">
+            <a href="{{ url('/informes') }}" class="list-group-item list-group-item">
                Informes
             </a>
                         
