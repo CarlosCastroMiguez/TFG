@@ -29,6 +29,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/informes','Admin\InformeController@index');
     Route::get('/agregarsala','Admin\SalaController@getSala');
     Route::post('/agregarsala','Admin\SalaController@postSala');
+    Route::get('/agregarsala/{id}','Admin\SalaController@destroy');
+
 
              
 });

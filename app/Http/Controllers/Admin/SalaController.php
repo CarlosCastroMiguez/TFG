@@ -42,7 +42,7 @@ class SalaController extends Controller
     public function destroy($id)
     {
         $salas = Sala::find($id);
-        dd($salas);
+        
         $salas->delete();
         
         return redirect('agregarsala')->with('success', 'Sala eliminada'); 

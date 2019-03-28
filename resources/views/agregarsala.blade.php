@@ -2,6 +2,10 @@
 
 @section('content')
 
+{{-- Link para los estilos de los iconos --}}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 <div class="card border-primary mb-3">
     <div class="card-header">Agregar Sala</div>
 
@@ -35,17 +39,41 @@
 
             <div class="form-group">
                 <label for="capacidad">Capacidad de la sala</label>
-                <input name="capacidad" name="capacidad" class="form-control" value="{{ old('capacidad') }}" required></input>
+                <input name="capacidad" name="capacidad" class="form-control" value="{{ old('capacidad') }}"></input>
             </div>
 
             <div class="form-group">
                 <button class="btn btn-primary">Agregar sala</button>
             </div>
-
-
+            <div class="card border-primary mb-3">
+                <div class="card-header">Eliminar Sala</div>
         </form>
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover ">
+                <thead class="thead-dark">
+                    <tr class="warning">
+                        <th>Id</th>
+                        <th>Tipo</th>
+                        <th>Capacidad</th>
+                    </tr>
+                </thead>
+                @foreach($salas as $sala)
+                <tbody>
+                    <tr>
+                        <td>{{ $sala->id }}</td>
+                        <td>{{ $sala->tipo }}</td>
+                        <td>{{ $sala->capacidad }}</td>
+                        <td><button class="btn btn-primary" href="/agregarsala/{{ $sala -> id }}">Eliminar</button></td>
+                    </tr>
+                </tbody>
+                @endforeach
+            </table>
 
+
+
+        </div>
     </div>
+</div>
 
 </div>
 @endsection
