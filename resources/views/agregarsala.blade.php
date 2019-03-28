@@ -27,12 +27,12 @@
                 <label for="tipo">Tipo de Sala</label>
                 <select name="tipo" class="form-control">
                     <option value="Consulta">Consulta</option>
-                    <option value="SimulaciónCompleja">Simulación Compleja</option>
-                    <option value="TaskTraining">Task Training</option>
+                    <option value="Simulación Compleja">Simulación Compleja</option>
+                    <option value="Task Training">Task Training</option>
                     <option value="Hospitalización">Hospitalización</option>
                     <option value="Farmacia">Farmacia</option>
                     <option value="Quirófano">Quirófano</option>
-                    <option value="FarmaciaComunitaria">Farmacia comunitaria</option>
+                    <option value="Farmacia Comunitaria">Farmacia Comunitaria</option>
                     <option value="Ambulancia">Ambulancia</option>
                 </select>
             </div>
@@ -45,35 +45,48 @@
             <div class="form-group">
                 <button class="btn btn-primary">Agregar sala</button>
             </div>
+
+        </form>
+        <form action="" method="get">
+
             <div class="card border-primary mb-3">
                 <div class="card-header">Eliminar Sala</div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-hover ">
+                        <thead class="thead-dark">
+                            <tr class="warning">
+                                <th>Id</th>
+                                <th>Tipo</th>
+                                <th>Capacidad</th>
+                            </tr>
+                        </thead>
+                        @foreach($salas as $sala)
+                        <tbody>
+                            <tr>
+                                <td>{{ $sala->id }}</td>
+                                <td>{{ $sala->tipo }}</td>
+                                <td>{{ $sala->capacidad }}</td>
+
+                                <th>
+                                    <form method="GET" action="{{action('Admin\SalaController@destroy', $sala['id'])}}">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="_method" value="DELETE" />
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                    </form>
+                                </th>
+
+                            </tr>
+                        </tbody>
+                        @endforeach
+                    </table>
+
+                </div>
+            </div>
         </form>
-        <div class="card-body">
-            <table class="table table-bordered table-striped table-hover ">
-                <thead class="thead-dark">
-                    <tr class="warning">
-                        <th>Id</th>
-                        <th>Tipo</th>
-                        <th>Capacidad</th>
-                    </tr>
-                </thead>
-                @foreach($salas as $sala)
-                <tbody>
-                    <tr>
-                        <td>{{ $sala->id }}</td>
-                        <td>{{ $sala->tipo }}</td>
-                        <td>{{ $sala->capacidad }}</td>
-                        <td><button class="btn btn-primary" href="/agregarsala/{{ $sala -> id }}">Eliminar</button></td>
-                    </tr>
-                </tbody>
-                @endforeach
-            </table>
-
-
-
-        </div>
     </div>
 </div>
 
-</div>
 @endsection

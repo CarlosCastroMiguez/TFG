@@ -169,8 +169,7 @@ class EventController extends Controller
         $events->end_date = $request->input('end_date');
         
         $events->save();
-        echo '<script> alert("Data Stored") </script>';
-        
+                
         return redirect('calendar')->with('success', 'Event updated'); 
     }
 

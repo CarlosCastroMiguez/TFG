@@ -16,7 +16,7 @@ class SalaController extends Controller
     }
     public function postSala(Request $request){
         $rules = [
-                'tipo' => 'required|in:Consulta,SimulacionCompleja:TaskTraining,Hospitalizacion,Farmacia,Quirófano,FarmaciaComunitaria,Ambulancia',
+                'tipo' => 'required|in:Consulta,Simulación Compleja,Task Training,Hospitalización,Farmacia,Quirófano,Farmacia Comunitaria,Ambulancia',
                 'capacidad' => 'required|integer|between:2,75',
         ];
         
@@ -24,6 +24,7 @@ class SalaController extends Controller
             'capacidad.between' => 'La capacidad introducida debe ser mayor que 1 y menor que 76.',
             'capacidad.required' => 'Es necesario ingresar un valor para la capacidad de la sala.',
             'capacidad.integer' => 'El valor introducido en la capacidad debe de ser un número',
+            'tipo.in' => 'El tipo introducido ha de ser uno de los de la lista',
         ];
         
         //si la validacion no se cumple no se avanza
