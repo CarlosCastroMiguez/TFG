@@ -184,7 +184,7 @@ class EventController extends Controller
         $events =Event::find($id);
         $events->delete();
         
-        return redirect('calendar')->with('success', 'Event Deleted'); 
+        return redirect('calendar')->with('fail', 'Event Deleted'); 
 
         
     }

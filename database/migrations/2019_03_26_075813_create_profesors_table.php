@@ -18,6 +18,7 @@ class CreateProfesorsTable extends Migration
             $table->increments('id');
             
             $table->string('nombre');
+            $table->string('apellido');
             $table->string('departamento');
                       
             $table->timestamps();

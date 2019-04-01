@@ -12,25 +12,25 @@ class AsignaturasTableSeeder extends Seeder
     public function run()
     {
         Asignatura::create([
-            'nombre' => 'asignatura A',
-            'codigo' => '1111',
-            'grado' => 'grado A',
+            'nombre' => 'Matemáticas',
+            'codigo' => '0000000001',
+            'grado' => 'Biotecnología',
             'curso' => 1,
-            'grupo' => 'grupo A'
+            'grupo' => 'M11'
         ]);
         Asignatura::create([
-            'nombre' => 'asignatura B',
-            'codigo' => '2222',
-            'grado' => 'grado B',
+            'nombre' => 'Física',
+            'codigo' => '0000000002',
+            'grado' => 'Farmacia',
             'curso' => 2,
-            'grupo' => 'grupo B'
+            'grupo' => 'T12'
         ]);
         Asignatura::create([
-            'nombre' => 'asignatura C',
-            'codigo' => '3333',
-            'grado' => 'grado C',
+            'nombre' => 'Química',
+            'codigo' => '0000000003',
+            'grado' => 'Enfermería',
             'curso' => 3,
-            'grupo' => 'grupo C'
+            'grupo' => 'M41'
         ]);
         
     }

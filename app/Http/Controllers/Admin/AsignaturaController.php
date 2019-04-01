@@ -17,10 +17,10 @@ class AsignaturaController extends Controller
     public function postAsignatura(Request $request){
         $rules = [
             'nombre' => 'required|min:5|max:150',
-            'codigo' => 'required|min:5|max:10',
+            'codigo' => 'required|integer|digits_between:1,10',
             'grado' => 'required|min:5|max:150',
             'curso' => 'required|integer|between:1,6',
-            'grupo' => 'required|min:1|max:2',
+            'grupo' => 'required|min:3|max:3',
             
         ];
         
@@ -35,8 +35,8 @@ class AsignaturaController extends Controller
             'nombre.min' => 'El nombre debe presentar al menos 5 caracteres', 
             'nombre.max' => 'El nombre debe presentar como máximo 150 caracteres',
             
-            'codigo.min' => 'El codigo debe presentar al menos 5 caracteres', 
-            'codigo.max' => 'El codigo debe presentar como máximo 10 caracteres',
+            'codigo.integer' => 'El codigo debe ser un numero entero', 
+            'codigo.digits_between' => 'El codigo debe tener una longitud de entre 1 y 10 números.',
             
             'grado.min' => 'El grado debe presentar al menos 5 caracteres', 
             'grado.max' => 'El grado debe presentar como máximo 150 caracteres',
@@ -44,8 +44,8 @@ class AsignaturaController extends Controller
             'curso.integer' => 'El curso debe ser un numero entero', 
             'curso.between' => 'El curso debe estar entre 1 y 6',
             
-            'grupo.min' => 'El grupo debe presentar al menos 1 caracteres', 
-            'grupo.max' => 'El grupo debe presentar como máximo 2 caracteres',
+            'grupo.min' => 'El grupo debe estar compuesto por 3 caracteres', 
+            'grupo.max' => 'El grupo debe estar compuesto por 3 caracteres',
             
         ];
         
@@ -63,7 +63,7 @@ class AsignaturaController extends Controller
             
         $asignatura->save();
         
-        return back();
+        return redirect('agregarasignatura')->with('success', 'Asignatura añadida');
     }
     
     public function destroy($id)
@@ -72,7 +72,7 @@ class AsignaturaController extends Controller
         
         $asignaturas->delete();
         
-        return redirect('agregarasignatura')->with('success', 'Asignatura eliminado'); 
+        return redirect('agregarasignatura')->with('fail', 'Asignatura eliminada'); 
 
         
     }

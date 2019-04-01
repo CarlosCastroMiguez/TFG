@@ -40,7 +40,8 @@ class SalaController extends Controller
             
         $sala->save();
         
-        return back();
+        return redirect('agregarsala')->with('success', 'Sala añadida');
+
     }
     
     public function destroy($id)
@@ -49,7 +50,7 @@ class SalaController extends Controller
         
         $salas->delete();
         
-        return redirect('agregarsala')->with('success', 'Sala eliminada'); 
+        return redirect('agregarsala')->with('fail', 'Sala eliminada'); 
 
         
     }

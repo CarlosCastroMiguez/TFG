@@ -13,15 +13,15 @@ class SalasTableSeeder extends Seeder
     public function run()
     {
         Sala::create([
-            'tipo' => 'tipo A',
+            'tipo' => 'Consulta',
             'capacidad' => 10
         ]);
         Sala::create([
-            'tipo' => 'tipo B',
+            'tipo' => 'Quirófano',
             'capacidad' => 20
         ]);
         Sala::create([
-            'tipo' => 'tipo C',
+            'tipo' => 'Farmacia',
             'capacidad' => 30
         ]);
     }

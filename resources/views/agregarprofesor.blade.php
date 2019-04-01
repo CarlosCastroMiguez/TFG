@@ -6,6 +6,18 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+@if(\Session::has('fail'))
+<div class="alert alert-danger">
+    <p>{{\Session::get('fail') }}</p>
+</div>
+@endif
+
+@if(\Session::has('success'))
+<div class="alert alert-success">
+    <p>{{\Session::get('success') }}</p>
+</div>
+@endif
+
 <div class="card border-primary mb-3">
     <div class="card-header">Agregar Profesor</div>
 
@@ -26,6 +38,11 @@
             <div class="form-group">
                 <label for="nombre">Nombre del profesor</label>
                 <input name="nombre" name="nombre" class="form-control" value="{{ old('nombre') }}"></input>
+            </div>
+            
+            <div class="form-group">
+                <label for="apellido">Apellido del profesor</label>
+                <input name="apellido" name="apellido" class="form-control" value="{{ old('apellido') }}"></input>
             </div>
 
             <div class="form-group">
@@ -50,6 +67,7 @@
                     <tr class="warning">
                         <th>Id</th>
                         <th>Nombre</th>
+                        <th>Apellido</th>
                         <th>Departamento</th>
                         <th>Eliminar</th>
                     </tr>
@@ -59,6 +77,7 @@
                     <tr>
                         <td>{{ $profesor->id }}</td>
                         <td>{{ $profesor->nombre }}</td>
+                        <td>{{ $profesor->apellido }}</td>
                         <td>{{ $profesor->departamento }}</td>
 
                         <th>

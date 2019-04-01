@@ -31,7 +31,7 @@
 
             <input type="submit" class="btn btn-primary" name="submit" value="Add event data" />
                         
-            <a href="/events" class ="btn btn-info" > Back </a>
+            <a href="/calendar" class ="btn btn-info" > Back </a>
                         
         </form>
     </div>
