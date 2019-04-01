@@ -24,6 +24,7 @@ class CreateEventosTable extends Migration
             $table->unsignedInteger('id_asignatura');
             $table->unsignedInteger('id_profesor');
             $table->unsignedInteger('id_sala');
+            $table->unsignedInteger('id_simulador');
             
             $table->timestamps();
         });
@@ -33,6 +34,8 @@ class CreateEventosTable extends Migration
             $table->foreign('id_asignatura')->references('id')->on('asignaturas')->onDelete('cascade');
             $table->foreign('id_profesor')->references('id')->on('profesors')->onDelete('cascade');
             $table->foreign('id_sala')->references('id')->on('salas')->onDelete('cascade');
+            $table->foreign('id_simulador')->references('id')->on('simuladors')->onDelete('cascade');
+
         });
         
     }

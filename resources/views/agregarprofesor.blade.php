@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 <div class="card border-primary mb-3">
-    <div class="card-header">Agregar Sala</div>
+    <div class="card-header">Agregar Profesor</div>
 
     <div class="card-body">
         @if(count($errors)>0)
@@ -24,51 +24,45 @@
             {{ csrf_field() }}
 
             <div class="form-group">
-                <label for="tipo">Tipo de Sala</label>
-                <select name="tipo" class="form-control">
-                    @foreach($tipos_sala as $tipo)
-                        <option value="{{ $tipo -> nombre }}">{{ $tipo -> nombre }}</option>
-                    
-                    @endforeach
-                </select>
+                <label for="nombre">Nombre del profesor</label>
+                <input name="nombre" name="nombre" class="form-control" value="{{ old('nombre') }}"></input>
             </div>
 
             <div class="form-group">
-                <label for="capacidad">Capacidad de la sala</label>
-                <input name="capacidad" name="capacidad" class="form-control" value="{{ old('capacidad') }}"></input>
+                <label for="departamento">Departamento</label>
+                <input name="departamento" name="departamento" class="form-control" value="{{ old('departamento') }}"></input>
             </div>
 
             <div class="form-group">
-                <button class="btn btn-primary">Agregar sala</button>
+                <button class="btn btn-primary">Agregar Profesor</button>
             </div>
 
         </form>
     </div>
 </div>
-
 <form action="" method="get">
 
     <div class="card border-primary mb-3">
-        <div class="card-header">Eliminar Sala</div>
+        <div class="card-header">Eliminar Profesor</div>
         <div class="card-body">
             <table class="table table-bordered table-striped table-hover ">
                 <thead class="thead-dark">
                     <tr class="warning">
                         <th>Id</th>
-                        <th>Tipo</th>
-                        <th>Capacidad</th>
+                        <th>Nombre</th>
+                        <th>Departamento</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
-                @foreach($salas as $sala)
+                @foreach($profesores as $profesor)
                 <tbody>
                     <tr>
-                        <td>{{ $sala->id }}</td>
-                        <td>{{ $sala->tipo }}</td>
-                        <td>{{ $sala->capacidad }}</td>
+                        <td>{{ $profesor->id }}</td>
+                        <td>{{ $profesor->nombre }}</td>
+                        <td>{{ $profesor->departamento }}</td>
 
                         <th>
-                            <form method="GET" action="{{action('Admin\SalaController@destroy', $sala['id'])}}">
+                            <form method="GET" action="{{action('Admin\ProfesorController@destroy', $profesor['id'])}}">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="DELETE" />
                                 <button type="submit" class="btn btn-danger">
@@ -82,6 +76,7 @@
                 </tbody>
                 @endforeach
             </table>
+
         </div>
     </div>
 </form>

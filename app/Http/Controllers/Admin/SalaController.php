@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Sala;
+use App\TipoSala;
+
 use Auth;
 
 class SalaController extends Controller
@@ -12,7 +14,8 @@ class SalaController extends Controller
     public function getSala(){
         
         $salas = Sala::all();
-        return view('agregarsala')->with(compact('salas'));
+        $tipos_sala = TipoSala::all();
+        return view('agregarsala')->with(compact('salas', 'tipos_sala'));
     }
     public function postSala(Request $request){
         $rules = [
