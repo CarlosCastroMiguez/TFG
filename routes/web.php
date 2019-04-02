@@ -30,15 +30,15 @@ Route::group(['middleware' => 'admin'], function () {
     //salas
     Route::get('/agregarsala','Admin\SalaController@getSala');
     Route::post('/agregarsala','Admin\SalaController@postSala');
-    Route::get('/agregarsala/{id}','Admin\SalaController@destroy');
+    Route::get('/agregarsala/{id}/eliminar','Admin\SalaController@destroy');
     //profesores
     Route::get('/agregarprofesor','Admin\ProfesorController@getProfesor');
     Route::post('/agregarprofesor','Admin\ProfesorController@postProfesor');
-    Route::get('/agregarprofesor/{id}','Admin\ProfesorController@destroy');
+    Route::get('/agregarprofesor/{id}/eliminar','Admin\ProfesorController@destroy');
     //asignaturas
     Route::get('/agregarasignatura','Admin\AsignaturaController@getAsignatura');
     Route::post('/agregarasignatura','Admin\AsignaturaController@postAsignatura');
-    Route::get('/agregarasignatura/{id}','Admin\AsignaturaController@destroy');
+    Route::get('/agregarasignatura/{id}/eliminar','Admin\AsignaturaController@destroy');
 
 
              

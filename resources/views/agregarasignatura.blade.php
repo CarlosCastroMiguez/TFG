@@ -103,14 +103,9 @@
                         <td>{{ $asignatura->grupo }}</td>
 
                         <th>
-                            <form method="GET" action="{{action('Admin\AsignaturaController@destroy', $asignatura['id'])}}">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="_method" value="DELETE" />
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-
-                            </form>
+                            <a href="/agregarasignatura/{{ $asignatura-> id }}/eliminar" class="btn btn-danger" title="Eliminar">
+                                <i class="fas fa-trash"></i>
+                            </a>
                         </th>
 
                     </tr>

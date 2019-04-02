@@ -81,14 +81,9 @@
                         <td>{{ $profesor->departamento }}</td>
 
                         <th>
-                            <form method="GET" action="{{action('Admin\ProfesorController@destroy', $profesor['id'])}}">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="_method" value="DELETE" />
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-
-                            </form>
+                            <a href="/agregarprofesor/{{ $profesor-> id }}/eliminar" class="btn btn-danger" title="Eliminar">
+                                <i class="fas fa-trash"></i>
+                            </a>
                         </th>
 
                     </tr>

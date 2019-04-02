@@ -44,7 +44,7 @@ class ProfesorController extends Controller
             
         $profesor->save();
         
-        return redirect('agregarprofesor')->with('success', 'Profesor añadido');
+        return back()->with('success', 'Profesor añadido');
 
     }
     
@@ -54,7 +54,7 @@ class ProfesorController extends Controller
         
         $profesores->delete();
         
-        return redirect('agregarprofesor')->with('fail', 'Profesor eliminado'); 
+        return back()->with('fail', 'Profesor eliminado'); 
 
         
     }

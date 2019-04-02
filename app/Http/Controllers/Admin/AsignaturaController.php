@@ -63,7 +63,7 @@ class AsignaturaController extends Controller
             
         $asignatura->save();
         
-        return redirect('agregarasignatura')->with('success', 'Asignatura añadida');
+        return back()->with('success', 'Asignatura añadida');
     }
     
     public function destroy($id)
@@ -72,7 +72,7 @@ class AsignaturaController extends Controller
         
         $asignaturas->delete();
         
-        return redirect('agregarasignatura')->with('fail', 'Asignatura eliminada'); 
+        return back()->with('fail', 'Asignatura eliminada'); 
 
         
     }
